@@ -1,0 +1,17 @@
+CREATE TABLE plans (
+	id uuid,
+	name varchar (25),
+	description varchar (256),
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE tasks (
+	id uuid,
+	plan_id uuid,
+	name varchar (25),
+    description varchar (256),
+    date timestamp (2),
+    status varchar (7),
+    PRIMARY KEY (id),
+    FOREIGN KEY (plan_id) references plans(id)
+);
