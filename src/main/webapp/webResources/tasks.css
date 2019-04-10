@@ -1,0 +1,22 @@
+body {
+    background-color: bisque;;
+    font-family: Verdana, Arial, sans-serif;
+    font-style: inherit;
+    text-align: left;
+    color: black;
+    text-emphasis-color: white;
+}
+
+.container {
+    margin: 0 auto;
+    text-align: left;
+
+}
+
+.header {
+    margin-top: 50px;
+}
+
+.controls {
+    margin-top: 40px;
+}
