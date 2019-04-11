@@ -16,7 +16,7 @@
 <body>
 
 <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Menu
+    <button class="btn btn-primary dropdown-toggle btn-lg" type="button" data-toggle="dropdown">Menu
         <span class="caret"></span></button>
     <ul class="dropdown-menu">
 

@@ -16,7 +16,7 @@
 <body>
 
 <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Menu
+    <button class="btn btn-primary dropdown-toggle btn-lg" type="button" data-toggle="dropdown">Menu
         <span class="caret"></span></button>
     <ul class="dropdown-menu">
         <a href="/home" class="btn btn-link" role="button">Home</a>
@@ -40,7 +40,7 @@
         </div>
         <div class="col sm-8">
             <a href="?action=add">
-                <button type="button" class="btn btn-primary">Add</button>
+                <button type="button" class="btn btn-primary btn-lg">Add</button>
             </a>
 
         </div>
@@ -58,7 +58,7 @@
             <tbody>
             <c:forEach items="${requestScope.planners}" var="planner">
                 <tr>
-                    <td> <a href="?action=edit&id=${planner.id}"> ${planner.name} </a></td>
+                    <td> <a href="/home/tasks"> ${planner.name} </a></td>
                     <td>${planner.description}</td>
 
                     <td>
@@ -85,9 +85,16 @@
                                             <button type="button" class="btn btn-primary">Yes</button>
                                         </a>
                                     </div>
+
+
+
                                 </div>
                             </div>
                         </div>
+                        <br>
+                        <a href="/home/tasks">
+                            <button type="button" class="btn btn-link"> See tasks</button>
+                        </a>
                     </td>
                 </tr>
             </c:forEach>

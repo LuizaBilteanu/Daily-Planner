@@ -15,7 +15,7 @@
 <body>
 
 <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Menu
+    <button class="btn btn-primary dropdown-toggle btn-lg" type="button" data-toggle="dropdown">Menu
         <span class="caret"></span></button>
     <ul class="dropdown-menu">
         <a href="/home" class="btn btn-link" role="button">Home</a>
@@ -31,7 +31,7 @@
         </div>
         <div class="col sm-8">
             <a href="?action=add">
-                <button type="button" class="btn btn-primary">Add</button>
+                <button type="button" class="btn btn-primary btn-lg" >Add</button>
             </a>
 
         </div>
