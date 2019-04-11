@@ -50,9 +50,10 @@ import java.util.UUID;
                     taskId = req.getParameter("id");
                     dbManager.deleteTask(taskId);
 //                    break;
-                case ("update"):
-                    taskId = req.getParameter("id");
-                    dbManager.changeTaskStatus(taskId);
+//                case ("update"):
+//                    taskId = req.getParameter("id");
+//                    req.setAttribute("task", dbManager.getTaskById(taskId));
+//                    dbManager.changeTaskStatus(taskId);
                 default:
                     List<Task> tasks = dbManager.getAllTasks();
                     req.setAttribute("tasks", tasks);
@@ -97,6 +98,21 @@ import java.util.UUID;
                     req.getRequestDispatcher("/jsps/tasks/listTasks.jsp").forward(req, resp);
                     break;
 
+//                case ("update"):
+//                    task  = new Task();
+//                    task.setId(UUID.fromString(req.getParameter("id")));
+//
+//                    task.setName(req.getParameter("name"));
+//                    task.setDescription(req.getParameter("description"));
+//                    task.setDate(Date.valueOf(req.getParameter("inputDate")));
+//                    task.setStatus("Completed");
+//
+//                    dbManager.changeTaskStatus(task.getStatus());
+//
+//                    tasks = dbManager.getAllTasks();
+//                    req.setAttribute("tasks", tasks);
+//                    req.getRequestDispatcher("/jsps/tasks/listTasks.jsp").forward(req, resp);
+//                    break;
 
                 default:
                     tasks = dbManager.getAllTasks();

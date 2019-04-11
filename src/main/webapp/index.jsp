@@ -25,10 +25,10 @@
 
 
         <form action="/home/tasks">
-            <a href="/home/tasks?action=add" class="btn btn-info" role="button">Add task</a>
+            <a href="/home/tasks?action=add" class="btn btn-info" role="button">Add new task</a>
         </form>
 
-        <a href="/home/lists?action=add" class="btn btn-info" role="button">Add list  </a>
+        <a href="/home/lists?action=add" class="btn btn-info" role="button">Add new list  </a>
     </ul>
 </div>
 <br>

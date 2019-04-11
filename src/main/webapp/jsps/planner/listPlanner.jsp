@@ -21,7 +21,7 @@
     <ul class="dropdown-menu">
         <a href="/home" class="btn btn-link" role="button">Home</a>
         <form><a href="/home/tasks" class="btn btn-link" role="button">My tasks</a></form>
-        <form><a href="/home/tasks?action=add" class="btn btn-warning" role="button">Add new task</a></form>
+        <form><a href="/home/tasks?action=add" class="btn btn-info" role="button">Add new task</a></form>
         <a href="/home/lists?action=add" class="btn btn-info" role="button">Add new list  </a>
     </ul>
 </div>
@@ -58,7 +58,7 @@
             <tbody>
             <c:forEach items="${requestScope.planners}" var="planner">
                 <tr>
-                    <td>${planner.name}</td>
+                    <td> <a href="?action=edit&id=${planner.id}"> ${planner.name} </a></td>
                     <td>${planner.description}</td>
 
                     <td>

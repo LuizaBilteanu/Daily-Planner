@@ -20,7 +20,7 @@
     <ul class="dropdown-menu">
         <a href="/home" class="btn btn-link" role="button">Home</a>
         <form><a href="/home/lists" class="btn btn-link" role="button">My lists</a></form>
-        <form><a href="/home/tasks?action=add" class="btn btn-warning" role="button">Add new task</a></form>
+        <form><a href="/home/tasks?action=add" class="btn btn-info" role="button">Add new task</a></form>
         <a href="/home/lists?action=add" class="btn btn-info" role="button">Add new list  </a>
     </ul>
 </div>

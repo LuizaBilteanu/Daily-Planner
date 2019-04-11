@@ -43,7 +43,7 @@
                         <input type ="date" class="form-control" id="date" name="inputDate" placeholder="Date" >
                     </div>
 
-                    <label for="date">Status</label>
+                    <label for="status">Status</label>
                     <select id="status" name="status">
                         <option value="Pending">Pending</option>
                         <option value="Completed">Completed</option>
