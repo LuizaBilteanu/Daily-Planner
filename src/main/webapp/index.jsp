@@ -14,48 +14,26 @@
 
 </head>
 <body>
-<%--var url='url(<%= request.getContextPath()%>/img/login.jpg)';--%>
-<%--$('.hr').css("background-image", url);--%>
 
-<br> </br>
-
-
-<h1 align="center" style="color:black;" style="font-family:'Courier New'">Daily planner</h1>
 <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Menu
         <span class="caret"></span></button>
     <ul class="dropdown-menu">
 
-        <%--<li><button type="button" class="btn btn-primary" action="/home/lists">Add new list</button></li>--%>
+        <form><a href="/home/lists" class="btn btn-link" role="button">My lists</a></form>
+        <form><a href="/home/tasks" class="btn btn-link" role="button">My tasks</a></form>
 
-        <%--<li><a href="?action=add"><button type="button" class="btn btn-primary" action="/home/lists">Add new list--%>
 
-            <form><a href="/home/lists" class="btn btn-link" role="button">My lists</a></form>
-            <form><a href="/home/tasks" class="btn btn-link" role="button">My tasks</a></form>
+        <form action="/home/tasks">
+            <a href="/home/tasks?action=add" class="btn btn-info" role="button">Add task</a>
+        </form>
 
-            <%--<form method="post" action="/home/lists?action=add">--%>
-                <%--<input type="hidden" name="action" value="add">--%>
-
-                <%--<button type="submit" class="btn btn-info"  name="action" value="add"> Add new list--%>
-                <%--</button>--%>
-
-            <%--</form>--%>
-        <%--&lt;%&ndash;</button></a></li>&ndash;%&gt;--%>
-            <%--<form method="post" action="/home/tasks?action=add">--%>
-                <%--<input type="hidden" name="action" value="add">--%>
-
-                <%--<button type="submit" class="btn btn-warning"  name="action" value="add"> Add new task--%>
-                <%--</button>--%>
-
-            <%--</form>--%>
-
-            <form action="/home/tasks">
-                <a href="/home/tasks?action=add" class="btn btn-info" role="button">Add task</a>
-            </form>
-
-            <a href="/home/lists?action=add" class="btn btn-info" role="button">Add list  </a>
+        <a href="/home/lists?action=add" class="btn btn-info" role="button">Add list  </a>
     </ul>
 </div>
+<br>
+<h1 align="center" style="color:black;" style="font-family:'Courier New'"><b>Daily planner</b></h1>
+
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -12,7 +12,7 @@
 
     <title>Add task</title>
 </head>
-<body background="C:\Users\Luiza Bilteanu\IdeaProjects\finalProject\target\finalProject\planner.jpeg">
+<body>
 
 <div class="container">
     <div class="row">
@@ -43,26 +43,16 @@
                         <input type ="date" class="form-control" id="date" name="inputDate" placeholder="Date" >
                     </div>
 
-
-                    <%--<div class="form-group">--%>
-                        <%--<label for="status">Status</label>--%>
-                        <%--<input type="text" class="form-control" id="status" name="status" placeholder="Status" value="${requestScope.task.status}">--%>
-
-                        <%--<button type="submit" class="btn btn-primary"  name="action" value="Add"> Add--%>
-                        <%--</button>--%>
-
-
-                    <select>
+                    <label for="date">Status</label>
+                    <select id="status" name="status">
                         <option value="Pending">Pending</option>
                         <option value="Completed">Completed</option>
 
                     </select>
-
                     <h4>&nbsp;</h4>
                     <button type="submit" class="btn btn-primary"  name="action" value="Add"> Add
                     </button>
 
-                    </div>
                 </form>
             </h1>
         </div>

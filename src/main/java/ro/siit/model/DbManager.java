@@ -138,6 +138,16 @@ public class DbManager {
         }
     }
 
+    public void changeTaskStatus (String id){
+        try {
+            PreparedStatement insertStatement = connection.prepareStatement("UPDATE tasks SET status = Completed WHERE id = ?");
+            insertStatement.setObject(1, UUID.fromString(id));
+            insertStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public List<Planner> getAllLists() {
         List<Planner> allLists = new ArrayList<>();

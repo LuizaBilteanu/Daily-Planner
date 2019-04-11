@@ -6,17 +6,3 @@ body {
     color: black;
     text-emphasis-color: white;
 }
-
-.container {
-    margin: 0 auto;
-    text-align: left;
-
-}
-
-.header {
-    margin-top: 50px;
-}
-
-.controls {
-    margin-top: 40px;
-}

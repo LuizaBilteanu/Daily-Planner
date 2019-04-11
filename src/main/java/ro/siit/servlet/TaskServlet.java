@@ -1,9 +1,7 @@
 package ro.siit.servlet;
 
-import ro.siit.Action;
 import ro.siit.entity.Planner;
 import ro.siit.entity.Task;
-import ro.siit.entity.old.HobbyList;
 import ro.siit.model.DbManager;
 
 import javax.servlet.ServletConfig;
@@ -14,8 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
 
@@ -39,6 +35,7 @@ import java.util.UUID;
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
             String actionString = req.getParameter("action");
             String action = (actionString != null) ? actionString : "list";
+
             switch(action){
                 case ("add"):
                     req.setAttribute("lists", dbManager.getAllLists());
@@ -52,7 +49,10 @@ import java.util.UUID;
                 case ("delete"):
                     taskId = req.getParameter("id");
                     dbManager.deleteTask(taskId);
-                    // break;
+//                    break;
+                case ("update"):
+                    taskId = req.getParameter("id");
+                    dbManager.changeTaskStatus(taskId);
                 default:
                     List<Task> tasks = dbManager.getAllTasks();
                     req.setAttribute("tasks", tasks);
@@ -96,6 +96,8 @@ import java.util.UUID;
                     req.setAttribute("tasks", tasks);
                     req.getRequestDispatcher("/jsps/tasks/listTasks.jsp").forward(req, resp);
                     break;
+
+
                 default:
                     tasks = dbManager.getAllTasks();
                     req.setAttribute("tasks", tasks);

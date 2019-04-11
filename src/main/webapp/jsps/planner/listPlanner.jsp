@@ -9,10 +9,11 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/webResources/listTasks.css">
 
     <title>My lists</title>
 </head>
-<body background="C:\Users\Luiza Bilteanu\IdeaProjects\finalProject\target\finalProject\planner.jpeg">
+<body>
 
 <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Menu
@@ -64,7 +65,7 @@
                         <a href="?action=edit&id=${planner.id}">
                             <button type="button" class="btn btn-primary">Edit</button>
                         </a>
-                        <!--<a href="?action=delete&id=${planner.id}">-->
+
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ays${planner.id}">Delete</button>
                         <div class="modal fade" id="ays${planner.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -76,7 +77,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        Are you sure that you eant to delete this list? ${planner.name} (${planner.description})
+                                        Are you sure that you want to delete this list? ${planner.name} (${planner.description})
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>

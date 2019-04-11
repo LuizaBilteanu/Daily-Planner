@@ -9,7 +9,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/webResources/tasks.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/webResources/listTasks.css">
     <title>Tasks</title>
 </head>
 <body>
@@ -58,8 +58,9 @@
                         <a href="?action=edit&id=${task.id}">
                             <button type="button" class="btn btn-primary">Edit</button>
                         </a>
-                        <!--<a href="?action=delete&id=${task.id}">-->
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ays${task.id}">Done</button>
+
+                        
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ays${task.id}">Delete</button>
                         <div class="modal fade" id="ays${task.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -70,7 +71,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        Are you sure that the task is complete? ${task.name} (${task.description})
+                                        Are you sure that you want to delete this task? ${task.name} (${task.description})
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
@@ -81,7 +82,20 @@
                                 </div>
                             </div>
                         </div>
+
+                        <a href="?action=update&id=${task.id}">
+                            <button type="button" class="btn btn-success">Done</button>
+                        </a>
+
+                        <div class="form-group">
+                            <select name="list">
+                                <c:forEach items="${requestScope.lists}" var="list">
+                                    <option value="${list.id}">${list.name}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
                     </td>
+
                 </tr>
             </c:forEach>
             </tbody>
