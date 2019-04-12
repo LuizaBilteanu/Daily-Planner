@@ -219,4 +219,24 @@ public class DbManager {
             e.printStackTrace();
         }
     }
+
+//    public Task getTasksFromList(String id) {
+//        Task task = new Task();
+//        try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM tasks WHERE plan_id = ?")) {
+//            statement.setObject(1, UUID.fromString(id));
+//            ResultSet taskResult = statement.executeQuery();
+//            taskResult.next();
+//            task.setId(UUID.fromString(taskResult.getString(1)));
+//            task.setPlanId(UUID.fromString(taskResult.getString(2)));
+//            task.setName(taskResult.getString(3));
+//            task.setDescription(taskResult.getString(4));
+//            task.setDate(taskResult.getDate(5));
+//            task.setStatus(taskResult.getString(6));
+//        } catch (SQLException sqlEx){
+//            System.out.println(sqlEx);
+//        }
+//
+//        return task;
+//    }
+//
 }

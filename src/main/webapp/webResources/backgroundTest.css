@@ -1,0 +1,31 @@
+body {
+    background-image: url("lists2.jpg");
+    font-family: Verdana, Arial, sans-serif;
+    font-style: inherit;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.82);
+    text-emphasis-color: rgba(0, 0, 0, 0.82);
+
+    height: 100%;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+/*.banner-text{*/
+    /*padding:200px 0 150px 0;*/
+/*}*/
+.banner-heading{
+    font-family: 'Lobster', cursive;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 100px;
+    margin-bottom: 40px;
+    color: rgba(0, 0, 0, 0.82);
+}
+
+.container {
+    margin: fill;
+    text-align: center;
+
+}

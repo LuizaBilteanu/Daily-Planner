@@ -1,0 +1,39 @@
+body {
+    background-image: url("tasks2.jpg");
+    font-family: Verdana, Arial, sans-serif;
+    font-style: inherit;
+    /*text-align: left;*/
+    color: black;
+    text-emphasis-color: white;
+
+    /*height: 100%;*/
+    /*background-position: top;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: auto;*/
+
+    /*background-attachment: scroll;*/
+}
+
+.scrollLists {
+    height: 380px;
+    width: 1100px;
+    overflow-y: scroll;
+}
+
+.banner{
+    color: black;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+/*.container {*/
+    /*margin: fill;*/
+    /*text-align: center;*/
+
+/*}*/
+/*image {*/
+    /*url: "tasks2.jpg";*/
+    /*opacity: 0.5;*/
+    /*filter: alpha(opacity=50); !* For IE8 and earlier *!*/
+/*}*/
+
