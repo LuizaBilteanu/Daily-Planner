@@ -14,50 +14,51 @@
     <title>Add task</title>
 </head>
 <body>
+<br><br>
 
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
-            <h1> Add task:
-                <h1>&nbsp;</h1>
-                <form method="post" action="/home/tasks">
-                    <input type="hidden" name="action" value="add">
+            <h1> Add task: </h1>
+            <br>
+            <form method="post" action="/home/tasks">
+                <input type="hidden" name="action" value="add">
 
-                    <div class="form-group">
-                        <label for="name">Task name</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Name"
-                               value="${requestScope.task.name}">
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <input type="text" class="form-control" id="description" name="description"
-                               placeholder="Description" value="${requestScope.task.description}">
-                    </div>
-                    <div class="form-group">
-                        <label for="date">List</label>
-                        <select name="list">
-                            <c:forEach items="${requestScope.lists}" var="list">
-                                <option value="${list.id}">${list.name}</option>
-                            </c:forEach>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="date">Date</label>
-                        <input type="date" class="form-control" id="date" name="inputDate" placeholder="Date">
-                    </div>
-
-                    <label for="status">Status</label>
-                    <select id="status" name="status">
-                        <option value="Pending">Pending</option>
-                        <option value="Completed">Completed</option>
-
+                <div class="form-group">
+                    <label for="name">Task name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name"
+                           value="${requestScope.task.name}">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" id="description" name="description"
+                           placeholder="Description" value="${requestScope.task.description}">
+                </div>
+                <div class="form-group">
+                    <label for="date">List</label>
+                    <select name="list">
+                        <c:forEach items="${requestScope.lists}" var="list">
+                            <option value="${list.id}">${list.name}</option>
+                        </c:forEach>
                     </select>
-                    <h4>&nbsp;</h4>
-                    <button type="submit" class="btn btn-primary" name="action" value="Add">Add
-                    </button>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" class="form-control" id="date" name="inputDate" placeholder="Date">
+                </div>
 
-                </form>
-            </h1>
+                <label for="status">Status</label>
+                <select id="status" name="status">
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+
+                </select>
+                <br><br>
+                <button type="submit" class="btn btn-secondary btn-lg" name="action" value="Add"> ADD
+                </button>
+
+            </form>
+
         </div>
     </div>
 </div>

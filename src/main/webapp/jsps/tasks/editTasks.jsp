@@ -22,7 +22,7 @@
 <%--<input type="text" name="status" value="<c:out value="${task.status}"/>">--%>
 <%--<input type="submit" value="UPDATE">--%>
 <%--</form>--%>
-
+<br><br>
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
@@ -63,10 +63,9 @@
                         <option value="Completed" ${task.status == 'Completed' ? 'selected' : ''}>Completed</option>
 
                     </select>
-                    <h4>&nbsp;</h4>
 
-                    <button type="submit">
-                        Edit
+                    <br><br>
+                    <button type="submit" class="btn btn-secondary btn-lg" name="action" value="Edit"> UPDATE
                     </button>
 
                 </form>

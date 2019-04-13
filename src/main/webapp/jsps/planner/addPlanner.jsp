@@ -14,11 +14,11 @@
     <title>Add new list</title>
 </head>
 <body>
-
+<br>
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
-            <h1> Add list
+            <h1> Add list:
                 <h1>&nbsp;</h1>
                 <form method="post" action="/home/lists">
                     <input type="hidden" name="action" value="add">
@@ -33,7 +33,8 @@
                         <input type="text" class="form-control" id="description" name="description"
                                placeholder="Description" value="${requestScope.planner.description}">
                     </div>
-                    <button type="submit" class="btn btn-primary" name="action" value="Add">Add
+                    <br><br>
+                    <button type="submit" class="btn btn-secondary btn-lg" name="action" value="Add">ADD
                     </button>
 
                 </form>

@@ -16,26 +16,39 @@
 <body>
 
 <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle btn-lg" type="button" data-toggle="dropdown">Menu
+    <button class="btn btn-dark dropdown-toggle btn-lg" type="button" data-toggle="dropdown">Menu
         <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-        <a href="/home" class="btn btn-link" role="button">Home</a>
-        <form><a href="/home/lists" class="btn btn-link" role="button">My lists</a></form>
-        <form><a href="/home/tasks?action=add" class="btn btn-info" role="button">Add new task</a>
-        </form>
-        <a href="/home/lists?action=add" class="btn btn-info" role="button">Add new list </a>
-    </ul>
+    <div class="dropdown-menu">
+        <div>
+            <form><a href="/home" class="dropdown-item" style="text-color:black">Home</a></form>
+            <form><a href="/home/tasks" class="dropdown-item" style="text-color:black">My tasks</a></form>
+            <form><a href="/home/lists" class="dropdown-item" style="text-color:black">My lists</a></form>
+        </div>
+
+        <button type="button" class="btn btn-secondary btn-group">Add</button>
+        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span></button>
+
+        <div class="dropdown-menu">
+            <a href="/home/tasks?action=add" class="dropdown-item" style="text-color:black">Add new
+                task</a>
+            <a href="/home/lists?action=add" class="dropdown-item" style="text-color:black">Add new
+                list </a>
+        </div>
+
+    </div>
 </div>
-</div>
-</div>
+
+
 <div class="container">
     <div class="row" style="text-align: center">
         <div class="col-sm-4">
-            <p style="font-size: 50px;"> <b>Tasks</b></p>
+            <p style="font-size: 50px;"><b>Tasks</b></p>
         </div>
-        <div class="col sm-8>
+        <div class="col sm-8">
             <a href="?action=add">
-                <button type="button" class="btn btn-primary btn-lg">Add</button>
+                <button type="button" class="btn btn-secondary btn-lg">ADD</button>
             </a>
 
         </div>
@@ -47,76 +60,75 @@
     <div class="row">
         <div class="scroll">
             <%--<div class="table-responsive">--%>
-                <table class="table table-striped table-light " style="text-color: floralwhite">
-                    <thead class="table-dark">
+            <table class="table table-striped table-light " style="text-color: floralwhite">
+                <thead class="table-dark">
+                <tr>
+                    <th scope="col" style="color:white ; font-size:130%; text-align:center;">Name</th>
+                    <th scope="col" style="color:white; font-size:130%; text-align:center;">Description</th>
+                    <th scope="col" style="color:white; font-size:130%; text-align:center;">Date</th>
+                    <th scope="col" style="color:white; font-size:130%; text-align:center;">Status</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${requestScope.tasks}" var="task">
                     <tr>
-                        <th scope="col" style="color:white ; font-size:130%; text-align:center;">Name</th>
-                        <th scope="col" style="color:white; font-size:130%; text-align:center;">Description</th>
-                        <th scope="col" style="color:white; font-size:130%; text-align:center;">Date</th>
-                        <th scope="col" style="color:white; font-size:130%; text-align:center;">Status</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach items="${requestScope.tasks}" var="task">
-                        <tr>
-                            <td style="text-align: center"><b>${task.name}</b></td>
-                            <td style="text-align: center"><b>${task.description}</b></td>
-                            <td style="text-align: center"><b>${task.date}</b></td>
-                            <td style="text-align: center"><b>${task.status}</b></td>
-                            <td>
-                                <a href="?action=edit&id=${task.id}">
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                </a>
+                        <td style="text-align: center"><b>${task.name}</b></td>
+                        <td style="text-align: center"><b>${task.description}</b></td>
+                        <td style="text-align: center"><b>${task.date}</b></td>
+                        <td style="text-align: center"><b>${task.status}</b></td>
+                        <td>
+                            <a href="?action=edit&id=${task.id}">
+                                <button type="button" class="btn btn-primary">Edit</button>
+                            </a>
 
 
-                                <button type="button" class="btn btn-danger" data-toggle="modal"
-                                        data-target="#ays${task.id}">
-                                    Delete
-                                </button>
-                                <div class="modal fade" id="ays${task.id}" tabindex="-1" role="dialog"
-                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Are you sure that you want to delete this task? ${task.name}
-                                                (${task.description})
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                                    No
-                                                </button>
-                                                <a href="?action=delete&id=${task.id}">
-                                                    <button type="button" class="btn btn-primary">Yes</button>
-                                                </a>
-                                            </div>
+                            <button type="button" class="btn btn-danger" data-toggle="modal"
+                                    data-target="#ays${task.id}">
+                                Delete
+                            </button>
+                            <div class="modal fade" id="ays${task.id}" tabindex="-1" role="dialog"
+                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Are you sure that you want to delete this task? ${task.name}
+                                            (${task.description})
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                No
+                                            </button>
+                                            <a href="?action=delete&id=${task.id}">
+                                                <button type="button" class="btn btn-primary">Yes</button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <a href="?action=update&id=${task.id}">
-                                    <button type="button" class="btn btn-success">Done</button>
-                                </a>
-                                    <%--<button type="button" class="btn btn-success">Test</button>--%>
+                            <a href="?action=update&id=${task.id}">
+                                <button type="button" class="btn btn-success">Done</button>
+                            </a>
+                                <%--<button type="button" class="btn btn-success">Test</button>--%>
 
-                                <select name="list">
-                                    <option value="${requestScope.lists}" var="list">
-                                    </option>
-                                </select>
-                            </td>
+                            <a class="btn btn-default btn-dark" href="/home/lists?id=${task.id}">
+                                ${planner.name}
+                            </a>
+                        </td>
 
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
-                <%--</div>--%>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+            <%--</div>--%>
         </div>
     </div>
 </div>

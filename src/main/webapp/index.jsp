@@ -18,50 +18,46 @@
 </head>
 <body>
 <div class="background-transparency">
-<div class="dropdown">
-    <button class="btn btn-dark dropdown-toggle btn-lg" type="button" data-toggle="dropdown">Menu
-        <span class="caret"></span></button>
+    <div class="dropdown">
+        <button class="btn btn-dark dropdown-toggle btn-lg" type="button" data-toggle="dropdown">Menu
+            <span class="caret"></span></button>
 
-    <div class="dropdown-menu">
+        <div class="dropdown-menu">
 
-        <%--<ul class="buttonStyle">--%>
-        <div>
-            <form><a href="/home/lists" class="dropdown-item" style="text-color:black">My lists</a></form>
-            <form><a href="/home/tasks" class="dropdown-item" style="text-color:black">My tasks</a></form>
-        </div>
-
-        <%--<div class="btn-group">--%>
-            <%--<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"--%>
-                    <%--aria-expanded="false"> Add--%>
-            <%--</button>--%>
-
-            <button type="button" class="btn btn-secondary btn-group">Add</button>
-            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            <span class="sr-only">Toggle Dropdown</span></button>
-
-            <div class="dropdown-menu">
-                <a href="/home/tasks?action=add" class="dropdown-item" style="text-color:black">Add new
-                    task</a>
-                <a href="/home/lists?action=add" class="dropdown-item" style="text-color:black">Add new
-                    list </a>
+            <div>
+                <form><a href="/home/lists" class="dropdown-item" style="text-color:black">My lists</a></form>
+                <form><a href="/home/tasks" class="dropdown-item" style="text-color:black">My tasks</a></form>
             </div>
 
-        <%--</div>--%>
-    </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary btn-group">ADD</button>
+                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+                        data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
 
-</div>
-
-<br><br><br><br><br><br><br>
-<div class="banner">
-    <div class="container">
-        <div class="banner-text">
-            <div class="banner-heading">
-                Let me help you get organized!
+                <div class="dropdown-menu">
+                    <a href="/home/tasks?action=add" class="dropdown-item" style="text-color:black">Add new
+                        task</a>
+                    <a href="/home/lists?action=add" class="dropdown-item" style="text-color:black">Add new
+                        list </a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+    <br><br><br><br><br><br><br>
+    <div class="banner">
+        <div class="container">
+            <div class="banner-text">
+                <div class="banner-heading">
+                    Let me help you get organized!
+                </div>
+                <div><a href="/home/lists?action=add" type="button" class="btn btn-dark btn-xlarge">START</a></div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -33,7 +33,7 @@ import java.util.UUID;
         private DbManager dbManager = DbManager.getInstance();
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            System.out.println("sunt in get");
+
             String actionString = req.getParameter("action");
             String action = (actionString != null) ? actionString : "list";
 
@@ -58,8 +58,15 @@ import java.util.UUID;
                     dbManager.changeTaskStatus(taskId);
                     this.redirectToTasks(resp);
                     break;
+
                 default:
-                    List<Task> tasks = dbManager.getAllTasks();
+                    List<Task> tasks;
+                    String listId = req.getParameter("planId");
+                    if(listId != null) {
+                        tasks = dbManager.tasksFromList(listId);
+                    } else {
+                        tasks = dbManager.getAllTasks();
+                    }
                     req.setAttribute("tasks", tasks);
                     req.getRequestDispatcher("/jsps/tasks/listTasks.jsp").forward(req,resp);
                     break;
@@ -73,9 +80,7 @@ import java.util.UUID;
 
         @Override
         protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            System.out.println("sunt in post");
             String actionString = req.getParameter("action");
-            System.out.println("parametrul action:"+actionString);
             String action = (actionString != null) ? actionString : "list";
 
             switch(action){

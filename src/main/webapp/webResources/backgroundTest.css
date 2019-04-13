@@ -1,38 +1,61 @@
 body {
-    background-image: url("lists2.jpg");
+    background-image: url(lists2.jpg);
     font-family: Verdana, Arial, sans-serif;
     font-style: inherit;
     text-align: left;
     color: rgba(0, 0, 0, 0.82);
-    text-emphasis-color: rgba(0, 0, 0, 0.82);
-
     height: 100%;
-    background-position: top;
+    background-size: cover;
+    width: 100%;
     background-repeat: no-repeat;
-    background-size: auto;
 }
 
-/*.banner-text{*/
-    /*padding:200px 0 150px 0;*/
-/*}*/
+
 .banner-heading{
     font-family: 'Lobster', cursive;
     font-size: 60px;
     font-weight: 700;
     line-height: 100px;
     margin-bottom: 40px;
-    color: rgba(0, 0, 0, 0.82);
+    /* color: rgba(0, 0, 0, 0.82); */
+    color: whitesmoke;
+
+}
+
+.banner{
+    color: black;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.btn-xlarge {
+    padding: 18px 28px;
+    font-size: 22px;
+    font-weight: bold;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 12px;
+    /*font-family: Raleway-SemiBold;*/
+    color: rgba(0,0,0,0.82) ;
+    letter-spacing: 1px;
+    line-height: 15px;
+    border: 2px solid black;
+    border-radius: 40px;
+    background: transparent;
+    transition: all 0.3s ease 0.2s;
 }
 
 .container {
     margin: fill;
     text-align: center;
-
-}
-.buttonStyle{
-  width: 100%;
 }
 
 .background-transparency{
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.4);
+    height: 100vh;
 }

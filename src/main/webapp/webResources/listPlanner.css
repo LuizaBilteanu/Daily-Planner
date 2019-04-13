@@ -17,7 +17,7 @@ body {
 .scrollLists {
     height: 380px;
     width: 1100px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .banner{

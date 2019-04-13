@@ -13,7 +13,8 @@
 
     <title>Edit list</title>
 </head>
-<body background="C:\Users\Luiza Bilteanu\IdeaProjects\finalProject\target\finalProject\planner.jpeg">
+<br><br>
+<body>
 
 <div class="container">
     <div class="row">
@@ -34,7 +35,8 @@
                         <input type="text" class="form-control" id="description" name="description"
                                placeholder="Description" value="${planner.description}">
                     </div>
-                    <button type="submit" class="btn btn-primary" name="action"> Edit
+                    <br><br>
+                    <button type="submit" class="btn btn-secondary btn-lg" name="action" value="Edit"> UPDATE
                     </button>
 
                 </form>

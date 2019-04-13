@@ -17,31 +17,38 @@
 <body>
 
 <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle btn-lg" type="button" data-toggle="dropdown">Menu
+    <button class="btn btn-dark dropdown-toggle btn-lg" type="button" data-toggle="dropdown">Menu
         <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-        <a href="/home" class="btn btn-link" role="button">Home</a>
-        <form><a href="/home/tasks" class="btn btn-link" role="button">My tasks</a></form>
-        <form><a href="/home/tasks?action=add" class="btn btn-info" role="button">Add new task</a></form>
-        <a href="/home/lists?action=add" class="btn btn-info" role="button">Add new list </a>
-    </ul>
-</div>
-<%--<div class="dropdown">--%>
-<%--<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">My lists--%>
-<%--<span class="caret"></span></button>--%>
-<%--<ul class="dropdown-menu">--%>
+    <div class="dropdown-menu">
+        <div>
+            <form><a href="/home" class="dropdown-item" style="text-color:black">Home</a></form>
+            <form><a href="/home/tasks" class="dropdown-item" style="text-color:black">My tasks</a></form>
+            <form><a href="/home/lists" class="dropdown-item" style="text-color:black">My lists</a></form>
+        </div>
 
-<%--<li><button type="button" class="btn btn-primary">Add new list</button></li>--%>
-<%--</ul>--%>
-<%--</div>--%>
+        <button type="button" class="btn btn-secondary btn-group">Add</button>
+        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span></button>
+
+        <div class="dropdown-menu">
+            <a href="/home/tasks?action=add" class="dropdown-item" style="text-color:black">Add new
+                task</a>
+            <a href="/home/lists?action=add" class="dropdown-item" style="text-color:black">Add new
+                list </a>
+        </div>
+
+    </div>
+</div>
+
 <div class="container" style="content-align: center">
     <div class="row">
         <div class="col-sm-4" style="text-align: center">
-            <p style="font-size: 50px;"> <b>Lists</b></p>
+            <p style="font-size: 50px;"><b>Lists</b></p>
         </div>
         <div class="col sm-8" style="text-align: center">
             <a href="?action=add">
-                <button type="button" class="btn btn-primary btn-lg">Add</button>
+                <button type="button" class="btn btn-secondary btn-lg">ADD</button>
             </a>
 
         </div>
@@ -77,8 +84,11 @@
                                 <div class="modal-dialog " role="document">
                                     <div class="modal-content table-dark">
                                         <div class="modal-header table-dark">
-                                            <h5 class="modal-title" id="exampleModalLabel" style="text-color: black">Confirmation</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <h5 class="modal-title" id="exampleModalLabel"
+                                                style="text-color: black">
+                                                Confirmation</h5>
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
                                                 <span aria-hidden="true" style="text-color: black">&times;</span>
                                             </button>
                                         </div>
@@ -90,7 +100,10 @@
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">No
                                             </button>
                                             <a href="?action=delete&id=${planner.id}">
-                                                <button type="button" class="btn btn-primary" style="text-color: black">Yes</button>
+                                                <button type="button" class="btn btn-primary"
+                                                        style="text-color: black">
+                                                    Yes
+                                                </button>
                                             </a>
                                         </div>
 
@@ -99,8 +112,8 @@
                                 </div>
                             </div>
 
-                            <a href="/home/tasks">
-                                <button type="button" class="btn btn-link"> See tasks</button>
+                            <a class="btn btn-link" href="/home/tasks?planId=${planner.id}">
+                                See tasks
                             </a>
                         </td>
                     </tr>

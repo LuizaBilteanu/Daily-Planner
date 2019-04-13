@@ -1,7 +1,5 @@
 package ro.siit.servlet;
 
-import ro.siit.Action;
-import ro.siit.entity.Task;
 import ro.siit.entity.Planner;
 import ro.siit.model.DbManager;
 

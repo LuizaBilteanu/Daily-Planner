@@ -4,7 +4,6 @@ import ro.siit.entity.Planner;
 import ro.siit.entity.Task;
 
 import java.sql.*;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -90,8 +89,7 @@ public class DbManager {
             task.setDescription(taskResult.getString(4));
             task.setDate(taskResult.getDate(5));
             task.setStatus(taskResult.getString(6));
-            System.out.println("caut task-ul: " + task.getName() + " cu id-ul: " + task.getId());
-        } catch (SQLException sqlEx){
+        } catch (SQLException sqlEx) {
             System.out.println(sqlEx);
         }
 
@@ -124,7 +122,6 @@ public class DbManager {
             insertStatement.setObject(3, new Timestamp(task.getDate().getTime()));
             insertStatement.setString(4, task.getStatus());
             insertStatement.setObject(5, task.getPlanId());
-            System.out.println("query de update, boss:");
             System.out.println(insertStatement);
             insertStatement.executeUpdate();
         } catch (SQLException e) {
@@ -132,7 +129,7 @@ public class DbManager {
         }
     }
 
-    public void deleteTask (String id) {
+    public void deleteTask(String id) {
         try {
             PreparedStatement insertStatement = connection.prepareStatement("DELETE FROM tasks WHERE id = ?");
             insertStatement.setObject(1, UUID.fromString(id));
@@ -142,9 +139,8 @@ public class DbManager {
         }
     }
 
-    public void changeTaskStatus (String id){
+    public void changeTaskStatus(String id) {
         try {
-            System.out.println("schimb statusul pentru: " + id);
             PreparedStatement insertStatement = connection.prepareStatement("UPDATE tasks SET status = 'Completed' WHERE id = ?");
             insertStatement.setObject(1, UUID.fromString(id));
             insertStatement.executeUpdate();
@@ -159,14 +155,14 @@ public class DbManager {
 
         try (Statement statement = connection.createStatement()) {
             ResultSet plans = statement.executeQuery("SELECT * FROM plans order by name asc");
-            while(plans.next()){
+            while (plans.next()) {
                 Planner plan = new Planner();
                 plan.setId(UUID.fromString(plans.getString(1)));
                 plan.setName(plans.getString(2));
                 plan.setDescription(plans.getString(3));
                 allLists.add(plan);
             }
-        } catch (SQLException sqlEx){
+        } catch (SQLException sqlEx) {
             System.out.println(sqlEx);
         }
 
@@ -182,7 +178,7 @@ public class DbManager {
             planner.setId(UUID.fromString(plannerResult.getString(1)));
             planner.setName(plannerResult.getString(2));
             planner.setDescription(plannerResult.getString(3));
-        } catch (SQLException sqlEx){
+        } catch (SQLException sqlEx) {
             System.out.println(sqlEx);
         }
 
@@ -213,7 +209,7 @@ public class DbManager {
     }
 
 
-    public void addList(Planner planner){
+    public void addList(Planner planner) {
         try {
             PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO plans VALUES (?, ?, ?)");
             insertStatement.setObject(1, planner.getId());
@@ -225,23 +221,41 @@ public class DbManager {
         }
     }
 
-//    public Task getTasksFromList(String id) {
-//        Task task = new Task();
-//        try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM tasks WHERE plan_id = ?")) {
-//            statement.setObject(1, UUID.fromString(id));
-//            ResultSet taskResult = statement.executeQuery();
-//            taskResult.next();
-//            task.setId(UUID.fromString(taskResult.getString(1)));
-//            task.setPlanId(UUID.fromString(taskResult.getString(2)));
-//            task.setName(taskResult.getString(3));
-//            task.setDescription(taskResult.getString(4));
-//            task.setDate(taskResult.getDate(5));
-//            task.setStatus(taskResult.getString(6));
-//        } catch (SQLException sqlEx){
-//            System.out.println(sqlEx);
-//        }
-//
-//        return task;
-//    }
-//
+    public List<Task> tasksFromList(String id) {
+        List<Task> taskList = new ArrayList<>();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM tasks WHERE plan_id = ?");
+            statement.setObject(1, UUID.fromString(id));
+
+            ResultSet tasks = statement.executeQuery();
+
+            while (tasks.next()) {
+            Task task = new Task();
+            task.setId(UUID.fromString(tasks.getString(1)));
+            task.setPlanId(UUID.fromString(tasks.getString(2)));
+            task.setName(tasks.getString(3));
+            task.setDescription(tasks.getString(4));
+            task.setDate(tasks.getDate(5));
+            task.setStatus(tasks.getString(6));
+            taskList.add(task);
+            }
+        } catch(SQLException sqlEx){
+            System.out.println(sqlEx);
+        }
+        return taskList;
+    }
+
+    public String displayListForTask (String id) {
+        Planner planner = new Planner();
+        try (PreparedStatement statement = connection.prepareStatement("SELECT plans.name FROM plans JOIN tasks ON plan_id = ?")) {
+            statement.setObject(1, UUID.fromString(id));
+            ResultSet plannerResult = statement.executeQuery();
+            plannerResult.next();
+        } catch (SQLException sqlEx) {
+            System.out.println(sqlEx);
+        }
+
+        return planner.getName();
+    }
 }
