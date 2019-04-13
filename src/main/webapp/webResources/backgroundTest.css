@@ -29,3 +29,10 @@ body {
     text-align: center;
 
 }
+.buttonStyle{
+  width: 100%;
+}
+
+.background-transparency{
+    background-color: rgba(0,0,0,0.5);
+}

@@ -17,25 +17,42 @@
 
 </head>
 <body>
-
+<div class="background-transparency">
 <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle btn-lg" type="button" data-toggle="dropdown">Menu
+    <button class="btn btn-dark dropdown-toggle btn-lg" type="button" data-toggle="dropdown">Menu
         <span class="caret"></span></button>
-    <ul class="dropdown-menu">
 
-        <form><a href="/home/lists" class="btn btn-link" role="button">My lists</a></form>
-        <form><a href="/home/tasks" class="btn btn-link" role="button">My tasks</a></form>
+    <div class="dropdown-menu">
 
+        <%--<ul class="buttonStyle">--%>
+        <div>
+            <form><a href="/home/lists" class="dropdown-item" style="text-color:black">My lists</a></form>
+            <form><a href="/home/tasks" class="dropdown-item" style="text-color:black">My tasks</a></form>
+        </div>
 
-        <form action="/home/tasks">
-            <a href="/home/tasks?action=add" class="btn btn-info" role="button">Add new task</a>
-        </form>
+        <%--<div class="btn-group">--%>
+            <%--<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"--%>
+                    <%--aria-expanded="false"> Add--%>
+            <%--</button>--%>
 
-        <a href="/home/lists?action=add" class="btn btn-info" role="button">Add new list </a>
-    </ul>
+            <button type="button" class="btn btn-secondary btn-group">Add</button>
+            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span></button>
+
+            <div class="dropdown-menu">
+                <a href="/home/tasks?action=add" class="dropdown-item" style="text-color:black">Add new
+                    task</a>
+                <a href="/home/lists?action=add" class="dropdown-item" style="text-color:black">Add new
+                    list </a>
+            </div>
+
+        <%--</div>--%>
+    </div>
+
 </div>
 
-<br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
 <div class="banner">
     <div class="container">
         <div class="banner-text">
@@ -45,8 +62,7 @@
         </div>
     </div>
 </div>
-
-
+</div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

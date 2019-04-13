@@ -34,12 +34,12 @@
 <%--<li><button type="button" class="btn btn-primary">Add new list</button></li>--%>
 <%--</ul>--%>
 <%--</div>--%>
-<div class="container">
+<div class="container" style="content-align: center">
     <div class="row">
-        <div class="col-sm-4">
-            <h1>Lists</h1>
+        <div class="col-sm-4" style="text-align: center">
+            <p style="font-size: 50px;"> <b>Lists</b></p>
         </div>
-        <div class="col sm-8">
+        <div class="col sm-8" style="text-align: center">
             <a href="?action=add">
                 <button type="button" class="btn btn-primary btn-lg">Add</button>
             </a>

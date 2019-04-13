@@ -29,11 +29,11 @@
 </div>
 </div>
 <div class="container">
-    <div class="row">
+    <div class="row" style="text-align: center">
         <div class="col-sm-4">
-            <h1>Tasks</h1>
+            <p style="font-size: 50px;"> <b>Tasks</b></p>
         </div>
-        <div class="col sm-8">
+        <div class="col sm-8>
             <a href="?action=add">
                 <button type="button" class="btn btn-primary btn-lg">Add</button>
             </a>

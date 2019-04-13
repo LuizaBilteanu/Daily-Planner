@@ -6,12 +6,12 @@ body {
     color: black;
     text-emphasis-color: white;
 
-    /*height: 100%;*/
-    /*background-position: top;*/
-    /*background-repeat: no-repeat;*/
-    /*background-size: auto;*/
+    height: 100%;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: auto;
 
-    /*background-attachment: scroll;*/
+    background-attachment: scroll;
 }
 
 .scrollLists {
@@ -26,11 +26,11 @@ body {
     background-attachment: scroll;
 }
 
-/*.container {*/
-    /*margin: fill;*/
-    /*text-align: center;*/
+.container {
+    margin: fill;
+    text-align: center;
 
-/*}*/
+}
 /*image {*/
     /*url: "tasks2.jpg";*/
     /*opacity: 0.5;*/
