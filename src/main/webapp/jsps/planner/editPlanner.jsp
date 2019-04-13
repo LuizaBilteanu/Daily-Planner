@@ -21,18 +21,20 @@
             <h1> Edit list details:
                 <h1>&nbsp;</h1>
                 <form method="post" action="/home/lists">
-                    <input type="hidden" name="action" value="update">
+                    <input type="hidden" name="action" value="edit">
+
+                    <input type="hidden" name="id" value="<c:out value="${planner.id}"/>">
                     <div class="form-group">
                         <label for="name">List name</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Name"
-                               value="<c:out value="${planner.id}"/>">
+                               value="${planner.name}">
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>
                         <input type="text" class="form-control" id="description" name="description"
-                               placeholder="Description" value="<c:out value="${planner.description}"/>">
+                               placeholder="Description" value="${planner.description}">
                     </div>
-                    <button type="submit" class="btn btn-primary" name="action" value="UPDATE"> UPDATE
+                    <button type="submit" class="btn btn-primary" name="action"> Edit
                     </button>
 
                 </form>

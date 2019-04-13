@@ -4,6 +4,7 @@ import ro.siit.entity.Planner;
 import ro.siit.entity.Task;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -59,7 +60,7 @@ public class DbManager {
         List<Task> allTasks = new ArrayList<>();
 
         try (Statement statement = connection.createStatement()) {
-            ResultSet tasks = statement.executeQuery("SELECT * FROM tasks");
+            ResultSet tasks = statement.executeQuery("SELECT * FROM tasks order by name asc");
             while (tasks.next()) {
                 Task task = new Task();
                 task.setId(UUID.fromString(tasks.getString(1)));
@@ -89,6 +90,7 @@ public class DbManager {
             task.setDescription(taskResult.getString(4));
             task.setDate(taskResult.getDate(5));
             task.setStatus(taskResult.getString(6));
+            System.out.println("caut task-ul: " + task.getName() + " cu id-ul: " + task.getId());
         } catch (SQLException sqlEx){
             System.out.println(sqlEx);
         }
@@ -115,13 +117,15 @@ public class DbManager {
 
     public void updateTask(Task task) {
         try {
-            PreparedStatement insertStatement = connection.prepareStatement("UPDATE tasks SET name = ? AND SET description = ? AND SET date = ? AND SET status = ? WHERE id = ?");
-            insertStatement.setObject(5, task.getId());
+            PreparedStatement insertStatement = connection.prepareStatement("UPDATE tasks SET name = ?,description = ?, date = ?, status = ?, plan_id = ? WHERE id = ?");
+            insertStatement.setObject(6, task.getId());
             insertStatement.setString(1, task.getName());
             insertStatement.setString(2, task.getDescription());
-            insertStatement.setDate(3, task.getDate());
+            insertStatement.setObject(3, new Timestamp(task.getDate().getTime()));
             insertStatement.setString(4, task.getStatus());
-
+            insertStatement.setObject(5, task.getPlanId());
+            System.out.println("query de update, boss:");
+            System.out.println(insertStatement);
             insertStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -138,22 +142,23 @@ public class DbManager {
         }
     }
 
-//    public void changeTaskStatus (String id){
-//        try {
-//            PreparedStatement insertStatement = connection.prepareStatement("UPDATE tasks SET status = 'Completed' WHERE id = ?");
-//            insertStatement.setObject(1, UUID.fromString(id));
-//            insertStatement.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    public void changeTaskStatus (String id){
+        try {
+            System.out.println("schimb statusul pentru: " + id);
+            PreparedStatement insertStatement = connection.prepareStatement("UPDATE tasks SET status = 'Completed' WHERE id = ?");
+            insertStatement.setObject(1, UUID.fromString(id));
+            insertStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     public List<Planner> getAllLists() {
         List<Planner> allLists = new ArrayList<>();
 
         try (Statement statement = connection.createStatement()) {
-            ResultSet plans = statement.executeQuery("SELECT * FROM plans");
+            ResultSet plans = statement.executeQuery("SELECT * FROM plans order by name asc");
             while(plans.next()){
                 Planner plan = new Planner();
                 plan.setId(UUID.fromString(plans.getString(1)));
@@ -187,7 +192,7 @@ public class DbManager {
 
     public void updateList(Planner planner) {
         try {
-            PreparedStatement insertStatement = connection.prepareStatement("UPDATE plans SET name = ? AND SET description = ? WHERE id = ?");
+            PreparedStatement insertStatement = connection.prepareStatement("UPDATE plans SET name = ?, description = ? WHERE id = ?");
             insertStatement.setObject(3, planner.getId());
             insertStatement.setString(1, planner.getName());
             insertStatement.setString(2, planner.getDescription());

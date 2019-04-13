@@ -33,6 +33,7 @@ import java.util.UUID;
         private DbManager dbManager = DbManager.getInstance();
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+            System.out.println("sunt in get");
             String actionString = req.getParameter("action");
             String action = (actionString != null) ? actionString : "list";
 
@@ -44,26 +45,37 @@ import java.util.UUID;
                 case ("edit"):
                     String taskId = req.getParameter("id");
                     req.setAttribute("task", dbManager.getTaskById(taskId));
+                    req.setAttribute("lists", dbManager.getAllLists());
                     req.getRequestDispatcher("/jsps/tasks/editTasks.jsp").forward(req, resp);
                     break;
                 case ("delete"):
                     taskId = req.getParameter("id");
                     dbManager.deleteTask(taskId);
-//                    break;
-//                case ("update"):
-//                    taskId = req.getParameter("id");
-//                    req.setAttribute("task", dbManager.getTaskById(taskId));
-//                    dbManager.changeTaskStatus(taskId);
+                    this.redirectToTasks(resp);
+                    break;
+                case ("update"):
+                    taskId = req.getParameter("id");
+                    dbManager.changeTaskStatus(taskId);
+                    this.redirectToTasks(resp);
+                    break;
                 default:
                     List<Task> tasks = dbManager.getAllTasks();
                     req.setAttribute("tasks", tasks);
-                    req.getRequestDispatcher("/jsps/tasks/listTasks.jsp").forward(req, resp);
+                    req.getRequestDispatcher("/jsps/tasks/listTasks.jsp").forward(req,resp);
+                    break;
+
             }
+        }
+
+        private void redirectToTasks(HttpServletResponse resp) throws IOException {
+            resp.sendRedirect("/home/tasks");
         }
 
         @Override
         protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+            System.out.println("sunt in post");
             String actionString = req.getParameter("action");
+            System.out.println("parametrul action:"+actionString);
             String action = (actionString != null) ? actionString : "list";
 
             switch(action){
@@ -77,10 +89,7 @@ import java.util.UUID;
                     task.setStatus(req.getParameter("status"));
 
                     dbManager.addTask(task);
-
-                    List<Task> tasks = dbManager.getAllTasks();
-                    req.setAttribute("tasks", tasks);
-                    req.getRequestDispatcher("/jsps/tasks/listTasks.jsp").forward(req, resp);
+                    this.redirectToTasks(resp);
                     break;
 
                 case ("edit"):
@@ -90,36 +99,17 @@ import java.util.UUID;
                     task.setDescription(req.getParameter("description"));
                     task.setDate(Date.valueOf(req.getParameter("inputDate")));
                     task.setStatus(req.getParameter("status"));
+                    task.setPlanId(UUID.fromString(req.getParameter("planId")));
+                    task.setStatus(req.getParameter("status"));
 
                     dbManager.updateTask(task);
-
-                    tasks = dbManager.getAllTasks();
+                    this.redirectToTasks(resp);
+                    break;
+                default:
+                    List<Task> tasks = dbManager.getAllTasks();
                     req.setAttribute("tasks", tasks);
                     req.getRequestDispatcher("/jsps/tasks/listTasks.jsp").forward(req, resp);
                     break;
-
-//                case ("update"):
-//                    task  = new Task();
-//                    task.setId(UUID.fromString(req.getParameter("id")));
-//
-//                    task.setName(req.getParameter("name"));
-//                    task.setDescription(req.getParameter("description"));
-//                    task.setDate(Date.valueOf(req.getParameter("inputDate")));
-//                    task.setStatus("Completed");
-//
-//                    dbManager.changeTaskStatus(task.getStatus());
-//
-//                    tasks = dbManager.getAllTasks();
-//                    req.setAttribute("tasks", tasks);
-//                    req.getRequestDispatcher("/jsps/tasks/listTasks.jsp").forward(req, resp);
-//                    break;
-
-                default:
-                    tasks = dbManager.getAllTasks();
-                    req.setAttribute("tasks", tasks);
-                    req.getRequestDispatcher("/jsps/tasks/listTasks.jsp").forward(req, resp);
             }
-            req.setAttribute("tasks", this.dbManager.getAllTasks());
-            req.getRequestDispatcher("/jsps/tasks/list.jsp").forward(req, resp);
         }
 }

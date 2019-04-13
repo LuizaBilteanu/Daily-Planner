@@ -64,9 +64,7 @@
                     <tr>
                         <td style="text-align: center"><b>${planner.name} </a></b></td>
                         <td style="text-align: center"><b>${planner.description}</b></td>
-                        <br>
-                        <br>
-                        <td>
+                        <td style="text-align: center">
                             <a href="?action=edit&id=${planner.id}">
                                 <button type="button" class="btn btn-primary">Edit</button>
                             </a>
@@ -76,23 +74,23 @@
                             </button>
                             <div class="modal fade" id="ays${planner.id}" tabindex="-1" role="dialog"
                                  aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                                <div class="modal-dialog " role="document">
+                                    <div class="modal-content table-dark">
+                                        <div class="modal-header table-dark">
+                                            <h5 class="modal-title" id="exampleModalLabel" style="text-color: black">Confirmation</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
+                                                <span aria-hidden="true" style="text-color: black">&times;</span>
                                             </button>
                                         </div>
-                                        <div class="modal-body">
+                                        <div class="modal-body table-dark" style="text-color: black">
                                             Are you sure that you want to delete this list? ${planner.name}
                                             (${planner.description})
                                         </div>
-                                        <div class="modal-footer">
+                                        <div class="modal-footer" style="text-color: black">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">No
                                             </button>
                                             <a href="?action=delete&id=${planner.id}">
-                                                <button type="button" class="btn btn-primary">Yes</button>
+                                                <button type="button" class="btn btn-primary" style="text-color: black">Yes</button>
                                             </a>
                                         </div>
 

@@ -15,7 +15,6 @@
 <body>
 
 <%--<form method="post" action="/home/tasks">--%>
-<%--<input type="hidden" name="action" value="update">--%>
 <%--<input type="hidden" name="id" value="<c:out value="${task.id}"/>">--%>
 <%--<input type="text" name="name" value="<c:out value="${task.name}"/>">--%>
 <%--<input type="text" name="description" value="<c:out value="${task.description}"/>">--%>
@@ -30,7 +29,7 @@
             <h1> Edit task:
                 <h1>&nbsp;</h1>
                 <form method="post" action="/home/tasks">
-                    <input type="hidden" name="action" value="update">
+                    <input type="hidden" name="action" value="edit">
 
                     <input type="hidden" name="id" value="<c:out value="${task.id}"/>">
                     <div class="form-group">
@@ -45,9 +44,9 @@
                     </div>
                     <div class="form-group">
                         <label for="date">List</label>
-                        <select name="list">
+                        <select name="planId">
                             <c:forEach items="${requestScope.lists}" var="list">
-                                <option value="${list.id}">${list.name}</option>
+                                <option value="${list.id}" ${task.planId == list.id ? 'selected' : ''}>${list.name}</option>
                             </c:forEach>
                         </select>
                     </div>
@@ -60,13 +59,14 @@
                     <label for="status">Status</label>
                     <select id="status" name="status">
 
-                        <option value="Pending">Pending</option>
-                        <option value="Completed">Completed</option>
+                        <option value="Pending" ${task.status == 'Pending' ? 'selected' : ''}>Pending</option>
+                        <option value="Completed" ${task.status == 'Completed' ? 'selected' : ''}>Completed</option>
 
                     </select>
                     <h4>&nbsp;</h4>
-                    <input type="submit" value="UPDATE">
 
+                    <button type="submit">
+                        Edit
                     </button>
 
                 </form>
