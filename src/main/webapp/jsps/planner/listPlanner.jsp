@@ -53,15 +53,14 @@
 
         </div>
     </div>
-    <br>
-    <br>
+    <br><br>
     <div class="row">
         <div class="scrollLists">
-            <table class="table table-striped table-dark" style="text-color: floralwhite">
-                <thead class="table-light">
+            <table class="table table-striped table-light" style="text-color: floralwhite">
+                <thead class="table-dark">
                 <tr>
-                    <th scope="col" style="color:black ; font-size:130%; text-align:center;">Name</th>
-                    <th scope="col" style="color:black ; font-size:130%; text-align:center;">Description</th>
+                    <th scope="col" style="color:white ; font-size:130%; text-align:center;">Name</th>
+                    <th scope="col" style="color:white ; font-size:130%; text-align:center;">Description</th>
 
                     <th></th>
                 </tr>
@@ -82,21 +81,20 @@
                             <div class="modal fade" id="ays${planner.id}" tabindex="-1" role="dialog"
                                  aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog " role="document">
-                                    <div class="modal-content table-dark">
-                                        <div class="modal-header table-dark">
-                                            <h5 class="modal-title" id="exampleModalLabel"
-                                                style="text-color: black">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">
                                                 Confirmation</h5>
                                             <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                 <span aria-hidden="true" style="text-color: black">&times;</span>
                                             </button>
                                         </div>
-                                        <div class="modal-body table-dark" style="text-color: black">
+                                        <div class="modal-body" style="text-color: black">
                                             Are you sure that you want to delete this list? ${planner.name}
                                             (${planner.description})
                                         </div>
-                                        <div class="modal-footer" style="text-color: black">
+                                        <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">No
                                             </button>
                                             <a href="?action=delete&id=${planner.id}">
@@ -106,12 +104,9 @@
                                                 </button>
                                             </a>
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>
-
                             <a class="btn btn-link" href="/home/tasks?planId=${planner.id}">
                                 See tasks
                             </a>

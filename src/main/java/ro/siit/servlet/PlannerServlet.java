@@ -3,18 +3,14 @@ package ro.siit.servlet;
 import ro.siit.entity.Planner;
 import ro.siit.model.DbManager;
 
-
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
-
 
 @WebServlet(urlPatterns = {"/lists"})
 public class PlannerServlet extends HttpServlet {

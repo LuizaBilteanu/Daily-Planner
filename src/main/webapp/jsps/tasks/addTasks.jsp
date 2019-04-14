@@ -56,9 +56,7 @@
                 <br><br>
                 <button type="submit" class="btn btn-secondary btn-lg" name="action" value="Add"> ADD
                 </button>
-
             </form>
-
         </div>
     </div>
 </div>

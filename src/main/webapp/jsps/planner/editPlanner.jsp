@@ -40,16 +40,6 @@
                     </button>
 
                 </form>
-
-
-                <%--<form method="post" action="/home/lists">--%>
-                <%--<input type="hidden" name="action" value="update">--%>
-                <%--<input type="hidden" name="id" value="<c:out value="${planner.id}"/>">--%>
-                <%--<input type="text" name="name" value="<c:out value="${planner.name}"/>">--%>
-                <%--<input type="text" name="description" value="<c:out value="${planner.description}"/>">--%>
-                <%--<input type="submit" value="UPDATE">--%>
-                <%--</form>--%>
-
             </h1>
         </div>
     </div>

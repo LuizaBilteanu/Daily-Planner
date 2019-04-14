@@ -112,7 +112,6 @@ public class DbManager {
         }
     }
 
-
     public void updateTask(Task task) {
         try {
             PreparedStatement insertStatement = connection.prepareStatement("UPDATE tasks SET name = ?,description = ?, date = ?, status = ?, plan_id = ? WHERE id = ?");
@@ -148,7 +147,6 @@ public class DbManager {
             e.printStackTrace();
         }
     }
-
 
     public List<Planner> getAllLists() {
         List<Planner> allLists = new ArrayList<>();
@@ -231,22 +229,22 @@ public class DbManager {
             ResultSet tasks = statement.executeQuery();
 
             while (tasks.next()) {
-            Task task = new Task();
-            task.setId(UUID.fromString(tasks.getString(1)));
-            task.setPlanId(UUID.fromString(tasks.getString(2)));
-            task.setName(tasks.getString(3));
-            task.setDescription(tasks.getString(4));
-            task.setDate(tasks.getDate(5));
-            task.setStatus(tasks.getString(6));
-            taskList.add(task);
+                Task task = new Task();
+                task.setId(UUID.fromString(tasks.getString(1)));
+                task.setPlanId(UUID.fromString(tasks.getString(2)));
+                task.setName(tasks.getString(3));
+                task.setDescription(tasks.getString(4));
+                task.setDate(tasks.getDate(5));
+                task.setStatus(tasks.getString(6));
+                taskList.add(task);
             }
-        } catch(SQLException sqlEx){
+        } catch (SQLException sqlEx) {
             System.out.println(sqlEx);
         }
         return taskList;
     }
 
-    public String displayListForTask (String id) {
+    public String displayListForTask(String id) {
         Planner planner = new Planner();
         try (PreparedStatement statement = connection.prepareStatement("SELECT plans.name FROM plans JOIN tasks ON plan_id = ?")) {
             statement.setObject(1, UUID.fromString(id));

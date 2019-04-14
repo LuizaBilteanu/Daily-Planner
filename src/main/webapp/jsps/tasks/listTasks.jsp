@@ -36,10 +36,8 @@
             <a href="/home/lists?action=add" class="dropdown-item" style="text-color:black">Add new
                 list </a>
         </div>
-
     </div>
 </div>
-
 
 <div class="container">
     <div class="row" style="text-align: center">
@@ -50,16 +48,11 @@
             <a href="?action=add">
                 <button type="button" class="btn btn-secondary btn-lg">ADD</button>
             </a>
-
         </div>
-
     </div>
-    <br>
-    <br>
-
+    <br><br>
     <div class="row">
         <div class="scroll">
-            <%--<div class="table-responsive">--%>
             <table class="table table-striped table-light " style="text-color: floralwhite">
                 <thead class="table-dark">
                 <tr>
@@ -81,8 +74,6 @@
                             <a href="?action=edit&id=${task.id}">
                                 <button type="button" class="btn btn-primary">Edit</button>
                             </a>
-
-
                             <button type="button" class="btn btn-danger" data-toggle="modal"
                                     data-target="#ays${task.id}">
                                 Delete
@@ -113,22 +104,17 @@
                                     </div>
                                 </div>
                             </div>
-
                             <a href="?action=update&id=${task.id}">
                                 <button type="button" class="btn btn-success">Done</button>
                             </a>
-                                <%--<button type="button" class="btn btn-success">Test</button>--%>
-
                             <a class="btn btn-default btn-dark" href="/home/lists?id=${task.id}">
-                                ${planner.name}
+                                    ${planner.name}
                             </a>
                         </td>
-
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
-            <%--</div>--%>
         </div>
     </div>
 </div>
